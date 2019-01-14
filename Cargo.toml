@@ -1,0 +1,7 @@
+[package]
+name = "euler-in-rust"
+version = "0.1.0"
+authors = ["Qiang Ji <qiang.j@gmail.com>"]
+edition = "2018"
+
+[dependencies]
