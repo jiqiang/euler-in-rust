@@ -3,8 +3,7 @@ extern crate threadpool;
 use std::sync::mpsc::channel;
 use threadpool::ThreadPool;
 
-pub fn run_concurrently(n1: usize, n2: usize, max_num: usize) -> usize {
-    let num_of_workers = 4;
+pub fn run_concurrently(n1: usize, n2: usize, max_num: usize, num_of_workers: usize) -> usize {
     let pool = ThreadPool::new(num_of_workers);
     let (sender, receiver) = channel();
     for n in 0..max_num {
@@ -28,7 +27,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn p001() { 
-        assert_eq!(233168, run_concurrently(3, 5, 1000));
+    fn p001() {
+        assert_eq!(233168, run_concurrently(3, 5, 1000, 4));
     }
 }
