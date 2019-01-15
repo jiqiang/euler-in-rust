@@ -9,14 +9,14 @@ fn main() {
     let pool = ThreadPool::new(num_of_workers);
     let (sender, receiver) = channel();
     for n in 0..max_num {
-        let tx = sender.clone();
+        let sender = sender.clone();
         pool.execute(move || {
             let value = if (n >= 3 && n % 3 == 0) || (n >= 5 && n % 5 == 0) {
                 n
             } else {
                 0
             };
-            tx.send(value)
+            sender.send(value)
                 .expect("channel will be there waiting for the pool");
         });
     }
