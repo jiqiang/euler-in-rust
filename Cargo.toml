@@ -1,8 +1,15 @@
 [package]
-name = "euler-in-rust"
+name = "euler"
 version = "0.1.0"
 authors = ["Qiang Ji <qiang.j@gmail.com>"]
 edition = "2018"
 
 [dependencies]
 threadpool = "1.7.1"
+
+[dev-dependencies]
+criterion = "0.2"
+
+[[bench]]
+name = "euler_benchmark"
+harness = false
