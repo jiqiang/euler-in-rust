@@ -4,22 +4,35 @@ use std::sync::mpsc::channel;
 use threadpool::ThreadPool;
 
 fn main() {
+    println!("{}", run_concurrently(3, 5, 1000));
+}
+
+fn run_concurrently(n1: usize, n2: usize, max_num: usize) -> usize {
     let num_of_workers = 4;
-    let max_num = 1000;
     let pool = ThreadPool::new(num_of_workers);
     let (sender, receiver) = channel();
     for n in 0..max_num {
         let sender = sender.clone();
         pool.execute(move || {
-            let value = if (n >= 3 && n % 3 == 0) || (n >= 5 && n % 5 == 0) {
+            let value = if (n >= n1 && n % n1 == 0) || (n >= n2 && n % n2 == 0) {
                 n
             } else {
                 0
             };
-            sender.send(value)
+            sender
+                .send(value)
                 .expect("channel will be there waiting for the pool");
         });
     }
-    let sum: usize = receiver.iter().take(max_num).sum();
-    println!("{}", sum);
+    receiver.iter().take(max_num).sum()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn p001() {
+        assert_eq!(233168, run_concurrently(3, 5, 1000));
+    }
 }
