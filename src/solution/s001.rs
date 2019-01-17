@@ -22,12 +22,27 @@ pub fn run_concurrently(n1: usize, n2: usize, max_num: usize, num_of_workers: us
     receiver.iter().take(max_num).sum()
 }
 
+pub fn run(n1: usize, n2: usize, max_num: usize) -> usize {
+    let mut sum: usize = 0;
+    for n in 0..max_num {
+        if (n >= n1 && n % n1 == 0) || (n >= n2 && n % n2 == 0) {
+            sum += n;
+        }
+    }
+    sum
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
-    fn p001() {
+    fn p001_concurrently() {
         assert_eq!(233168, run_concurrently(3, 5, 1000, 4));
+    }
+
+    #[test]
+    fn p001_not_concurrently() {
+        assert_eq!(233168, run(3, 5, 1000));
     }
 }
