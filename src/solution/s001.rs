@@ -3,7 +3,7 @@ extern crate threadpool;
 use std::sync::mpsc::channel;
 use threadpool::ThreadPool;
 
-pub fn run_concurrently(n1: u32, n2: u32, max_num: u32, num_of_workers: u32) -> u32 {
+pub fn multiples_of_3_and_5_1(n1: u32, n2: u32, max_num: u32, num_of_workers: u32) -> u32 {
     let pool = ThreadPool::new(num_of_workers as usize);
     let (sender, receiver) = channel();
     for n in 0..max_num {
@@ -22,7 +22,7 @@ pub fn run_concurrently(n1: u32, n2: u32, max_num: u32, num_of_workers: u32) -> 
     receiver.iter().take(max_num as usize).sum()
 }
 
-pub fn run(n1: u32, n2: u32, max_num: u32) -> u32 {
+pub fn multiples_of_3_and_5_2(n1: u32, n2: u32, max_num: u32) -> u32 {
     let mut sum: u32 = 0;
     for n in 0..max_num {
         if (n >= n1 && n % n1 == 0) || (n >= n2 && n % n2 == 0) {
@@ -37,12 +37,12 @@ mod tests {
     use super::*;
 
     #[test]
-    fn p001_concurrently() {
-        assert_eq!(233168, run_concurrently(3, 5, 1000, 4));
+    fn p001_1() {
+        assert_eq!(233168, multiples_of_3_and_5_1(3, 5, 1000, 4));
     }
 
     #[test]
-    fn p001_not_concurrently() {
-        assert_eq!(233168, run(3, 5, 1000));
+    fn p001_2() {
+        assert_eq!(233168, multiples_of_3_and_5_2(3, 5, 1000));
     }
 }

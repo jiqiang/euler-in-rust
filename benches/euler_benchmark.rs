@@ -5,8 +5,8 @@ mod benchmarks;
 
 criterion_group!(
     p001,
-    benchmarks::p001::bench_p001_concurrently,
-    benchmarks::p001::bench_p001_not_concurrently
+    benchmarks::p001::bench_p001_1,
+    benchmarks::p001::bench_p001_2
 );
 
 criterion_group!(p002, benchmarks::p002::bench_p002);
