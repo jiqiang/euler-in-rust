@@ -27,12 +27,30 @@ mod tests {
     #[test]
     fn p002() {
         let tests = [
-            Test {result: 0, max_num: 0},
-            Test {result: 2, max_num: 2},
-            Test {result: 2, max_num: 3},
-            Test {result: 2, max_num: 4},
-            Test {result: 2, max_num: 5},
-            Test {result: 44, max_num: 89},
+            Test {
+                result: 0,
+                max_num: 0,
+            },
+            Test {
+                result: 2,
+                max_num: 2,
+            },
+            Test {
+                result: 2,
+                max_num: 3,
+            },
+            Test {
+                result: 2,
+                max_num: 4,
+            },
+            Test {
+                result: 2,
+                max_num: 5,
+            },
+            Test {
+                result: 44,
+                max_num: 89,
+            },
         ];
 
         for test in tests.iter() {
