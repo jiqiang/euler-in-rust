@@ -19,13 +19,24 @@ pub fn run(max_num: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct Test {
+        result: usize,
+        max_num: usize,
+    }
+
     #[test]
     fn p002() {
-        assert_eq!(0, run(0));
-        assert_eq!(2, run(2));
-        assert_eq!(2, run(3));
-        assert_eq!(2, run(4));
-        assert_eq!(2, run(5));
-        assert_eq!(44, run(89));
+        let tests = [
+            Test {result: 0, max_num: 0},
+            Test {result: 2, max_num: 2},
+            Test {result: 2, max_num: 3},
+            Test {result: 2, max_num: 4},
+            Test {result: 2, max_num: 5},
+            Test {result: 44, max_num: 89},
+        ];
+
+        for test in tests.iter() {
+            assert_eq!(test.result, run(test.max_num));
+        }
     }
 }
