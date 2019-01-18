@@ -1,4 +1,4 @@
-pub fn run(max_num: u32) -> u32 {
+pub fn even_fibonacci_numbers_1(max_num: u32) -> u32 {
     let mut pair: (u32, u32) = (1, 2);
     let mut sum: u32 = 0;
     loop {
@@ -54,7 +54,7 @@ mod tests {
         ];
 
         for test in tests.iter() {
-            assert_eq!(test.result, run(test.max_num));
+            assert_eq!(test.result, even_fibonacci_numbers_1(test.max_num));
         }
     }
 }
