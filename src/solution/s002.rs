@@ -21,6 +21,7 @@ mod tests {
 
     #[test]
     fn p002() {
+        assert_eq!(0, run(0));
         assert_eq!(2, run(2));
         assert_eq!(2, run(3));
         assert_eq!(2, run(4));
