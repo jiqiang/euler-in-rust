@@ -1,6 +1,6 @@
-pub fn run(max_num: usize) -> usize {
-    let mut pair: (usize, usize) = (1, 2);
-    let mut sum: usize = 0;
+pub fn run(max_num: u32) -> u32 {
+    let mut pair: (u32, u32) = (1, 2);
+    let mut sum: u32 = 0;
     loop {
         if pair.0 > max_num {
             break;
@@ -20,8 +20,8 @@ mod tests {
     use super::*;
 
     struct Test {
-        result: usize,
-        max_num: usize,
+        result: u32,
+        max_num: u32,
     }
 
     #[test]
