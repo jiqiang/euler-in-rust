@@ -11,7 +11,10 @@ criterion_group!(
 
 criterion_group!(p002, benchmarks::p002::bench_p002);
 
+criterion_group!(p003, benchmarks::p003::bench_p003);
+
 criterion_main! {
     p001,
-    p002
+    p002,
+    p003,
 }
