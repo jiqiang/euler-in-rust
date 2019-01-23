@@ -1,9 +1,14 @@
-pub fn is_palindrome(s: &str) -> bool {
+pub fn is_palindrome_1(s: &str) -> bool {
     // A String type can be magically turned into a &str type using the Deref trait and type coercion.
     if s != s.chars().rev().collect::<String>() {
         return false;
     }
     true
+}
+
+pub fn is_palindrome_2(s: &str) -> bool {
+    let half = s.len() / 2;
+    s.bytes().take(half).eq(s.bytes().rev().take(half))
 }
 
 #[cfg(test)]
@@ -33,13 +38,24 @@ mod tests {
                 target: "123321",
                 expected: true,
             },
+            Test {
+                target: "1234321",
+                expected: true,
+            },
         ]
     }
 
     #[test]
-    fn test_is_palindrome() {
+    fn test_is_palindrome_1() {
         for test in get_tests().iter() {
-            assert_eq!(test.expected, is_palindrome(test.target));
+            assert_eq!(test.expected, is_palindrome_1(test.target));
+        }
+    }
+
+    #[test]
+    fn test_is_palindrome_2() {
+        for test in get_tests().iter() {
+            assert_eq!(test.expected, is_palindrome_2(test.target));
         }
     }
 }
