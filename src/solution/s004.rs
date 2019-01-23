@@ -1,16 +1,8 @@
 pub fn is_palindrome(s: &str) -> bool {
-    if s.is_empty() {
-        return false;
-    }
-
-    if s.len() == 1 {
-        return true;
-    }
-
+    // A String type can be magically turned into a &str type using the Deref trait and type coercion.
     if s != s.chars().rev().collect::<String>() {
         return false;
     }
-
     true
 }
 
@@ -18,18 +10,13 @@ pub fn is_palindrome(s: &str) -> bool {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test_is_palindrome() {
-        struct Test<'a> {
-            target: &'a str,
-            expected: bool,
-        };
+    struct Test<'a> {
+        target: &'a str,
+        expected: bool,
+    }
 
-        let tests = [
-            Test {
-                target: "",
-                expected: false,
-            },
+    fn get_tests<'a>() -> Vec<Test<'a>> {
+        vec![
             Test {
                 target: "2",
                 expected: true,
@@ -46,10 +33,13 @@ mod tests {
                 target: "123321",
                 expected: true,
             },
-        ];
+        ]
+    }
 
-        for test in tests.iter() {
-            assert_eq!(test.expected, is_palindrome(&test.target));
+    #[test]
+    fn test_is_palindrome() {
+        for test in get_tests().iter() {
+            assert_eq!(test.expected, is_palindrome(test.target));
         }
     }
 }
