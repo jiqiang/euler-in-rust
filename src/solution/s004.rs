@@ -23,6 +23,10 @@ mod tests {
     fn get_tests<'a>() -> Vec<Test<'a>> {
         vec![
             Test {
+                target: "",
+                expected: true,
+            },
+            Test {
                 target: "2",
                 expected: true,
             },
