@@ -13,8 +13,15 @@ criterion_group!(p002, benchmarks::p002::bench_p002);
 
 criterion_group!(p003, benchmarks::p003::bench_p003);
 
+criterion_group!(
+    p004,
+    benchmarks::p004::bench_p004_1,
+    benchmarks::p004::bench_p004_2
+);
+
 criterion_main! {
     p001,
     p002,
     p003,
+    p004,
 }
