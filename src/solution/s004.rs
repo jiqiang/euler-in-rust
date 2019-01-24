@@ -1,9 +1,6 @@
 pub fn is_palindrome_1(s: &str) -> bool {
     // A String type can be magically turned into a &str type using the Deref trait and type coercion.
-    if s != s.chars().rev().collect::<String>() {
-        return false;
-    }
-    true
+    s == s.chars().rev().collect::<String>()
 }
 
 pub fn is_palindrome_2(s: &str) -> bool {
