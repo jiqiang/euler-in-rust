@@ -8,6 +8,17 @@ pub fn is_palindrome_2(s: &str) -> bool {
     s.bytes().take(half).eq(s.bytes().rev().take(half))
 }
 
+pub fn largest_palindrome_product(lower_boundary: u32, upper_boundary: u32) -> Option<u32> {
+    (lower_boundary.pow(2)..=upper_boundary.pow(2))
+        .rev()
+        .find(|n| {
+            is_palindrome_2(&n.to_string())
+                && (lower_boundary..=upper_boundary)
+                    .find(|n1| n % n1 == 0 && n / n1 >= lower_boundary && n / n1 <= upper_boundary)
+                    != None
+        })
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -58,5 +69,11 @@ mod tests {
         for test in get_tests().iter() {
             assert_eq!(test.expected, is_palindrome_2(test.target));
         }
+    }
+
+    #[test]
+    fn test_largest_palindrome_product() {
+        assert_eq!(Some(9009), largest_palindrome_product(10, 99));
+        assert_eq!(Some(906609), largest_palindrome_product(100, 999));
     }
 }
