@@ -74,6 +74,6 @@ mod tests {
     #[test]
     fn test_largest_palindrome_product() {
         assert_eq!(Some(9009), largest_palindrome_product(10, 99));
-        assert_eq!(Some(906609), largest_palindrome_product(100, 999));
+        assert_eq!(Some(906_609), largest_palindrome_product(100, 999));
     }
 }

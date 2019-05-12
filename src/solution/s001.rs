@@ -44,16 +44,16 @@ mod tests {
 
     #[test]
     fn p001_1() {
-        assert_eq!(233168, multiples_of_3_and_5_1(3, 5, 1000, 4));
+        assert_eq!(233_168, multiples_of_3_and_5_1(3, 5, 1000, 4));
     }
 
     #[test]
     fn p001_2() {
-        assert_eq!(233168, multiples_of_3_and_5_2(3, 5, 1000));
+        assert_eq!(233_168, multiples_of_3_and_5_2(3, 5, 1000));
     }
 
     #[test]
     fn p001_3() {
-        assert_eq!(233168, multiples_of_3_and_5_3(3, 5, 1000));
+        assert_eq!(233_168, multiples_of_3_and_5_3(3, 5, 1000));
     }
 }
