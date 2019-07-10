@@ -16,8 +16,27 @@
 //!
 //! What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?
 
-pub fn number_spiral_diagonals(_size: u32) -> u32 {
-    101
+pub fn number_spiral_diagonals(max_width: u32) -> u32 {
+    let mut current_width = 3;
+    let mut start = 1;
+    let mut sum = 0;
+    let mut distance_to_corner: u32;
+    let mut right_bottom: u32;
+    let mut left_bottom: u32;
+    let mut left_top: u32;
+    let mut right_top: u32;
+
+    while current_width <= max_width {
+        distance_to_corner = current_width - 1;
+        right_bottom = start + distance_to_corner;
+        left_bottom = right_bottom + distance_to_corner;
+        left_top = left_bottom + distance_to_corner;
+        right_top = left_top + distance_to_corner;
+        start = right_top;
+        sum += right_bottom + left_bottom + left_top + right_top;
+        current_width += 2;
+    }
+    sum + 1
 }
 
 #[cfg(test)]
@@ -26,6 +45,7 @@ mod s028_tests {
 
     #[test]
     fn test_number_spiral_diagonals() {
-        assert_eq!(101, number_spiral_diagonals(5))
+        assert_eq!(101, number_spiral_diagonals(5));
+        assert_eq!(669_171_001, number_spiral_diagonals(1001));
     }
 }
