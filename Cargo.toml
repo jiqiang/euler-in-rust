@@ -1,5 +1,5 @@
 [package]
-name = "euler_in_rust"
+name = "euler"
 version = "0.1.0"
 authors = ["Qiang Ji <qiang.j@gmail.com>"]
 edition = "2018"
