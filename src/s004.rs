@@ -20,7 +20,7 @@ pub fn largest_palindrome_product(lower_boundary: u32, upper_boundary: u32) -> O
 }
 
 #[cfg(test)]
-mod tests {
+mod s004_tests {
     use super::*;
 
     struct Test<'a> {
