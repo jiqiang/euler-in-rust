@@ -11,11 +11,11 @@ pub fn largest_prime_factor(mut num: usize) -> usize {
 }
 
 #[cfg(test)]
-mod tests {
+mod s003_tests {
     use super::*;
 
     #[test]
-    fn p003() {
+    fn test_largest_prime_factor() {
         assert_eq!(29, largest_prime_factor(13195));
         assert_eq!(6857, largest_prime_factor(600_851_475_143));
     }
