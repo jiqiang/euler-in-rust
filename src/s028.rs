@@ -43,9 +43,25 @@ pub fn number_spiral_diagonals(max_width: u32) -> u32 {
 mod s028_tests {
     use super::*;
 
+    struct Test {
+        width: u32,
+        expected: u32,
+    }
+
     #[test]
     fn test_number_spiral_diagonals() {
-        assert_eq!(101, number_spiral_diagonals(5));
-        assert_eq!(669_171_001, number_spiral_diagonals(1001));
+        let tests = vec![
+            Test {
+                width: 5,
+                expected: 101,
+            },
+            Test {
+                width: 1001,
+                expected: 669_171_001,
+            },
+        ];
+        for test in tests.iter() {
+            assert_eq!(test.expected, number_spiral_diagonals(test.width));
+        }
     }
 }
