@@ -29,6 +29,6 @@ mod tests {
     #[test]
     fn test_lcm() {
         assert_eq!(2520, lcm(10));
-        assert_eq!(232792560, lcm(20));
+        assert_eq!(232_792_560, lcm(20));
     }
 }
