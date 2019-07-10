@@ -1,5 +1,3 @@
-extern crate threadpool;
-
 use std::sync::mpsc::channel;
 use threadpool::ThreadPool;
 
@@ -39,21 +37,21 @@ pub fn multiples_of_3_and_5_3(n1: u32, n2: u32, max_num: u32) -> u32 {
 }
 
 #[cfg(test)]
-mod tests {
+mod s001_tests {
     use super::*;
 
     #[test]
-    fn p001_1() {
+    fn test_multiples_of_3_and_5_1() {
         assert_eq!(233_168, multiples_of_3_and_5_1(3, 5, 1000, 4));
     }
 
     #[test]
-    fn p001_2() {
+    fn test_multiples_of_3_and_5_2() {
         assert_eq!(233_168, multiples_of_3_and_5_2(3, 5, 1000));
     }
 
     #[test]
-    fn p001_3() {
+    fn test_multiples_of_3_and_5_3() {
         assert_eq!(233_168, multiples_of_3_and_5_3(3, 5, 1000));
     }
 }
