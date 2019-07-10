@@ -45,23 +45,20 @@ mod s028_tests {
 
     struct Test {
         width: u32,
-        expected: u32,
+        sum: u32,
     }
 
     #[test]
     fn test_number_spiral_diagonals() {
         let tests = vec![
-            Test {
-                width: 5,
-                expected: 101,
-            },
+            Test { width: 5, sum: 101 },
             Test {
                 width: 1001,
-                expected: 669_171_001,
+                sum: 669_171_001,
             },
         ];
         for test in tests.iter() {
-            assert_eq!(test.expected, number_spiral_diagonals(test.width));
+            assert_eq!(test.sum, number_spiral_diagonals(test.width));
         }
     }
 }
