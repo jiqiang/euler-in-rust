@@ -1,4 +1,4 @@
-pub fn even_fibonacci_numbers_1(max_num: u32) -> u32 {
+pub fn even_fibonacci_numbers(max_num: u32) -> u32 {
     let mut pair: (u32, u32) = (1, 2);
     let mut sum: u32 = 0;
     loop {
@@ -16,7 +16,7 @@ pub fn even_fibonacci_numbers_1(max_num: u32) -> u32 {
 }
 
 #[cfg(test)]
-mod tests {
+mod s002_tests {
     use super::*;
 
     struct Test {
@@ -25,7 +25,7 @@ mod tests {
     }
 
     #[test]
-    fn p002() {
+    fn test_even_fibonacci_numbers() {
         let tests = [
             Test {
                 result: 0,
@@ -54,7 +54,7 @@ mod tests {
         ];
 
         for test in tests.iter() {
-            assert_eq!(test.result, even_fibonacci_numbers_1(test.max_num));
+            assert_eq!(test.result, even_fibonacci_numbers(test.max_num));
         }
     }
 }
